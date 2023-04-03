@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<title>Makerplace</title>
+	</head>
+	<body class = "bg-dark bg-image" style="background-image: url(images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container" >
+			<% include('partials/navbar') %>	
+			<div class="jumbotron" >
+				<img src = "images/logo4.png"  alt = "Logo" style="width:100px; height:170px; padding-bottom: 70px;"/>
+				<h1 class="display-1" style = "display: inline-block; " >Makerplace</h1>
+				<p class="lead">Nowdays it is possible to print almost anything you can think of, from jewelry to medical equipment.
+				Custom made things and rapid prototyping is now easier than ever before.
+				Join our community as a customer, place orders, connect with makers and get your dream printed
+				or become maker, start your own additive manufacturing buisiness and contribute to worldwide 3d printing community!</p>
+				<hr class="my-4">
+				<% if (typeof currentUser == "undefined") {%>
+				<a class="btn btn-primary btn-lg" href="/login" role="button">Login to place or take orders</a>
+				<%}%>
+			</div>
+		</div>
+		<script src="/jquery/jquery.min.js"></script>
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

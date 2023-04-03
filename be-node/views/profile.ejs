@@ -1,0 +1,94 @@
+
+ <!doctype html>
+ <html lang = "en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset = "utf-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel = "stylesheet" href = "/bootstrap/css/bootstrap.min.css">
+
+		<title> My blog </title>
+	</head>
+	<body class = "bg-dark bg-image" style="background-image: url(/images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+			
+			<nav>
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a href = "/profile/<%- user.id %>" class="nav-link active" aria-current="page" href="#">Profile</a>
+					</li>
+					<li class="nav-item">
+						<a href = "/profile/<%- user.id %>/feedbacks" class="nav-link" href="#">Feedbacks</a>
+					</li>
+					<% if ( currentUser.id == user.id) { %>
+						<li class="nav-item">
+							<a href = "/my_orders" class="nav-link" aria-current="page">My Orders</a>
+						</li>
+						<li class="nav-item">
+							<a href = "/logout" class="nav-link text-danger">Log out</a>
+						</li>
+					<% } %>
+				</ul>
+			</nav>
+			
+			
+			
+			
+				<h1 > Profile </h1>
+				<div>
+					
+					<img src = "/user_images/<%- user.avatar %>" alt = "profile_pic" style="width:150px; height:150px; border-radius:90%"/>
+					<p></p> 
+					
+					<%for (var step = 0; step < user.rating; step++) {%>
+						<img src = "/images/cube4.png"  alt = "rating" style="width:40px; height:40px;"/>
+					<%}%>
+					<%for (var step = 0; step < (5-user.rating); step++) {%>
+						<img src = "/images/cube3.png"  alt = "rating" style="width:40px; height:40px; filter: invert(50%);"/>
+					<%}%>
+					
+					<%if (user.status == 2) {%>
+						<h3> Maker:</h3>
+					<%}%>
+					
+					<%if (user.status == 1) {%>
+						<h3> Customer:</h3>
+					<%}%>
+					
+					
+					<%if (user.status == 0) {%>
+						<h3> Admin:</h3>
+					<%}%>
+					
+					<h2> <%- user.username %> </h2>
+					<h4> Email: <%- user.email %> </h4>
+					<h4> Phone number: <%- user.phone_num %> </h4>
+					<h4> Country: <%- user.country %> </h4>
+					<h4> City: <%- user.city %> </h4>
+					<h4> About:</h4>
+					<p><%-user.about%></p>
+					<h4> Links to accounts on other profiles:</h4>
+					<p><%-user.links%></p>
+					<%if (user.status == 2) {%>
+						<h4> Printers:</h4>
+						<p><%-user.printers%></p>
+					<%}%>
+					<h4> Credit card: <%- user.card_num %> </h4>
+					
+					<%if (user.id == currentUser.id) {%>
+						<a href = "/edit_profile" class = "btn btn-primary">Edit profile info</a>
+					<%}%>
+					
+				</div>
+			</div>
+		</div>
+
+		 <!-- JavaScript -->
+		 <script src = "/jquery/jquery.min.js"></script>
+		 <script src = "/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

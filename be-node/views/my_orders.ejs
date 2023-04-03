@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<title>My blog</title>
+	</head>
+	<body class = "bg-dark bg-image" style="background-image: url(/images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+			
+			
+				<nav>
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a href = "/profile/<%- currentUser.id %>" class="nav-link" >Profile</a>
+						</li>
+						<li class="nav-item">
+							<a href = "/profile/<%- currentUser.id %>/feedbacks" class="nav-link"  >Feedbacks</a>
+						</li>
+							<li class="nav-item">
+								<a href = "/my_orders" class="nav-link active" aria-current="page">My Orders</a>
+							</li>
+							<li class="nav-item">
+								<a href = "/logout" class="nav-link text-danger">Log out</a>
+							</li>
+					</ul>
+				</nav>
+				
+			
+			
+			
+				<h1>My Orders</h1>
+				<p>Total count: <%- orders.length %></p>
+				<div class="row row-cols-1 row-cols-md-3 g-4">
+					<% orders.forEach(function(orders) { %>
+						<div class="col" style="min-width: 50%; max-width: 50%">
+							<div class="card border-primary mb-3" >
+								<div class="card-header">
+								  <img src = "/user_images/<%- orders["avatar"] %>" alt = "Avatar" style="width:30px; height:30px; border-radius:90%"/>
+								  <a href = "/profile/<%- orders["author_id"] %>"><%- orders["username"] %></a>
+								</div>
+								<div class="card-body text-dark">
+									<h4><%- orders["title"] %></h4>
+									<h6>Material: <%- orders["material"] %></h6>
+									<h6>Layer height: <%- orders["layer"] %>mm</h6>
+									<h6>Infill: <%- orders["infill"] %>%</h6>
+									<h6>Price: <%- orders["price"] %> UAH/gramm</h6>
+									<!-- <p class="card-text text-dark"><%- orders["comment"] %></p> -->
+								</div>
+								<div class="card-footer">
+								<a href = "/order/<%- orders["order_id"] %>" class = "btn btn-primary">View order</a>
+								<% if ( currentUser.status == 2) { %>
+										<a href = "/drop_order/<%- orders["order_id"] %>" class = "btn btn-danger">Drop order</a>
+								<% } %>
+								<% if ( currentUser.status == 1) { %>
+										<a href = "/remove_order/<%- orders["order_id"] %>" class = "btn btn-danger">Remove order</a>
+										<a href = "/complete_order/<%- orders["order_id"] %>" class = "btn btn-success">Order completed</a>
+								<% } %>
+								</div>
+							</div>
+						</div>
+					<% }) %>
+				</div>
+			</div>
+		</div>
+
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

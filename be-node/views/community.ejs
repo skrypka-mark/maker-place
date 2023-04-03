@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<title>My blog</title>
+	</head>
+	<body body class = "bg-dark bg-image" style="background-image: url(/images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+				<h1>Makers</h1>
+				<table class="table table-striped">
+					<tbody>
+						<% users.forEach(function(users) { %>
+						<%if (users["status"] == 2) {%>
+							<tr>
+								<td>
+								<img src = "/user_images/<%- users["avatar"] %>" alt = "Avatar" style="width:30px; height:30px; border-radius:90%"/>
+								<a href = "/profile/<%- users["id"] %>"><%- users["username"] %></a>
+								<%for (var step = 0; step < users["rating"]; step++) {%>
+									<img src = "/images/cube4.png"  alt = "rating" style="width:20px; height:20px;"/>
+								<%}%>
+								<%for (var step = 0; step < (5-users["rating"]); step++) {%>
+									<img src = "/images/cube3.png"  alt = "rating" style="width:20px; height:20px; filter: invert(50%);"/>
+								<%}%>
+								</td>
+							</tr>
+						<% }}) %>
+					</tbody>		
+				</table>
+			</div>
+		</div>
+
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

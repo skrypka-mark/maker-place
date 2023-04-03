@@ -1,0 +1,136 @@
+ <!doctype html>
+ <html lang = "en">
+	 <head>
+		<!-- Required meta tags -->
+		 <meta charset = "utf-8">
+		 <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		 <!-- Bootstrap CSS -->
+		 <link rel = "stylesheet" href = "/bootstrap/css/bootstrap.min.css">
+
+		 <title> My blog </title>
+	 </head>
+	<body class = "bg-dark bg-image" style="background-image: url(images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+				<h1> Order 3D print </h1>
+				<form method = "post" action = "/place_order">
+				
+					<div class="form-group row">
+						<label for = "title" class="col-md-2 col-form-label">Title</label>
+						<div class="col-md-4">
+							<input type="text" id="title" class = "form-control " name="title" required autofocus>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="link" class="col-md-2 col-form-label">Link to model</label>
+						<div class="col-md-4">
+							<input type="text" id="link" class = "form-control " name="link" >
+						</div>
+					</div>
+					
+					
+					<div class = "form-group row">
+						<label for="file" class="col-md-2 col-form-label ">Upload model</label>
+						<div class="col-md-4">
+							<input type="file" id="file" name="file">
+						</div>
+					</div>
+					
+					
+					<div class = "form-group row">
+						<label for="material" class="col-md-2 col-form-label ">Material</label>
+						<div class="col-md-4">
+							<input class="form-control" list="materialOptions" id="material"  name="material" placeholder="Select material">
+							<datalist id="materialOptions">
+								<option value="ABS">
+								<option value="PLA">
+								<option value="PETG">
+								<option value="PET">
+								<option value="TPU">
+								<option value="PC">
+								<option value="PVA">
+								<option value="Nylon">
+								<option value="Hips">
+								<option value="PBT">
+								<option value="Resin">
+							</datalist>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="layer" class="col-md-2 col-form-label ">Layer height</label>
+						<div class="col-md-4">
+							<input class="form-control" list="layerOptions" id="layer"  name="layer" placeholder="Select layer height">
+							<datalist id="layerOptions">
+								<option value="0.02">
+								<option value="0.03">
+								<option value="0.05">
+								<option value="0.1">
+								<option value="0.2">
+								<option value="0.3">
+								<option value="0.5">
+								<option value="0.7">
+								<option value="1">
+								<option value="1.5">
+								<option value="2">
+							</datalist>
+						</div>
+						<h4>mm</h4>
+					</div>
+					
+					<div class="form-group row">
+						<label for="infill" class="col-md-2 col-form-label">Infill percentage</label>
+						<div class="col-md-4">
+							<input class="form-control" list="infillOptions" id="infill"  name="infill" placeholder="Select infill percentage">
+							<datalist id="infillOptions">
+								<option value="10">
+								<option value="20">
+								<option value="30">
+								<option value="40">
+								<option value="50">
+								<option value="60">
+								<option value="70">
+								<option value="80">
+								<option value="90">
+								<option value="100">
+							</datalist>
+						</div>
+						<h4>%</h4>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="price" class="col-md-2 col-form-label ">Price per gramm</label>
+						<div class="col-md-4">
+							<input type="text" id="price" class="form-control " name="price" value="3">
+						</div>
+						<h5>UAH/gramm</h5>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="copies" class="col-md-2 col-form-label ">Number of copies</label>
+						<div class="col-md-4">
+							<input type="text" id="copies" class="form-control " name="copies" value="1">
+						</div>
+					</div>
+					
+					
+					<div class = "form-group row">
+						<label for="comment" class="col-md-2 col-form-label ">Comment or any specific details</label>
+						<div class="col-md-4">
+							<textarea class="form-control" id="comment" name="comment" rows="5"></textarea>
+						</div>
+					</div>
+					
+					<button type = "submit" class = "btn btn-success" >Place order</button>
+				</form>
+			</div>
+		</div>
+
+		 <!-- JavaScript -->
+		 <script src = "/jquery/jquery.min.js"></script>
+		 <script src = "/bootstrap/js/bootstrap.min.js"></script>
+	 </body>
+</html>

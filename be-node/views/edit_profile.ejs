@@ -1,0 +1,107 @@
+
+ <!doctype html>
+ <html lang = "en">
+	 <head>
+		<!-- Required meta tags -->
+		 <meta charset = "utf-8">
+		 <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		 <!-- Bootstrap CSS -->
+		 <link rel = "stylesheet" href = "/bootstrap/css/bootstrap.min.css">
+
+		 <title> My blog </title>
+	 </head>
+	<body class = "bg-dark bg-image" style="background-image: url(images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+				<h1> Edit Profile info </h1>
+				<form method = "post" action = "/edit_profile">
+				
+					<div class="form-group row">
+						<label for = "username" class="col-md-2 col-form-label">Username</label>
+						<div class="col-md-4">
+							<input type="text" id="username" class = "form-control " name="username" value="<%- currentUser.username %>" required autofocus>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="email" class="col-md-2 col-form-label">E-Mail</label>
+						<div class="col-md-4">
+							<input type="text" id="email" class = "form-control " name="email" value="<%- currentUser.email %>" required>
+						</div>
+					</div>
+					
+					
+					<div class = "form-group row">
+						<label for="avatar" class="col-md-2 col-form-label ">Upload profile picture</label>
+						<div class="col-md-4">
+							<input class="form-control" type="file" id="avatar" name="avatar">
+						</div>
+					</div>
+					
+					
+					<div class = "form-group row">
+						<label for="country" class="col-md-2 col-form-label ">Country</label>
+						<div class="col-md-4">
+							<input type="text" id="country" class="form-control " name="country" value="<%- currentUser.country %>" required>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="city" class="col-md-2 col-form-label ">City</label>
+						<div class="col-md-4">
+							<input type="text" id="city" class="form-control " name="city" value="<%- currentUser.city %>" required>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="phone_num" class="col-md-2 col-form-label">Phone number</label>
+						<div class="col-md-4">
+							<input type="text" id="phone_num" class = "form-control " name="phone_num" value="<%- currentUser.phone_num %>" >
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="card_num" class="col-md-2 col-form-label ">My credit card number</label>
+						<div class="col-md-4">
+							<input type="text" id="card_num" class="form-control " name="card_num" value="<%- currentUser.card_num %>">
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="links" class="col-md-2 col-form-label ">Share links to your accounts on other platforms</label>
+						<div class="col-md-4">
+							 <textarea class="form-control" id="links" name="links" value="<%- currentUser.links %>" rows="3"></textarea>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="about" class="col-md-2 col-form-label ">Tell about youself</label>
+						<div class="col-md-4">
+							<textarea class="form-control" id="about" name="about" value="<%- currentUser.about%>" rows="3"></textarea>
+						</div>
+					</div>
+					
+					<%if (currentUser.status == 2) {%>
+						<div class = "form-group row">
+							<label for="printers" class="col-md-2 col-form-label ">List your 3D printers & cnc machines</label>
+							<div class="col-md-4">
+								<textarea class="form-control" id="printers" name="printers" value="<%- currentUser.printers %>" rows="3"></textarea>
+							</div>
+						</div>
+					<%}%>
+					
+
+					
+					<a class="btn btn-danger" href="/profile/<%- currentUser.id %>" role="button">Cancel</a>
+					<button type = "submit" class = "btn btn-primary" >Apply</button>
+				</form>
+			</div>
+		</div>
+
+		 <!-- JavaScript -->
+		 <script src = "/jquery/jquery.min.js"></script>
+		 <script src = "/bootstrap/js/bootstrap.min.js"></script>
+	 </body>
+</html>

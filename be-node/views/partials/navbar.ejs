@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+			aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav">
+			<img src = "/images/logo4.png"  alt = "Logo" style="width:35px; height:35px; filter: invert(100%);"/>
+			<li class="nav-item <%- activePage == "home" ? "active" : "" %>">
+				<a class="nav-link" href="/">Makerplace</a>
+			</li>
+			<li class="nav-item <%- activePage == "news" ? "active" : "" %>">
+				<a class="nav-link" href="/news">News</a>
+			</li>
+			<li class="nav-item <%- activePage == "community" ? "active" : "" %>">
+				<a class="nav-link" href="/community">Community</a>
+			</li>
+			<li class="nav-item <%- activePage == "faq" ? "active" : "" %>">
+				<a class="nav-link" href="/faq">FAQ</a>
+			</li>
+
+			<% if (typeof currentUser !== "undefined") 
+			{ %>
+			
+				<% if ( currentUser.status == 2) 
+				{ %>
+					<li class = "nav-item <%- activePage == "orders" ? "active" : "" %>">
+						<a class = "nav-link" href = "/orders"> Orders </a>
+					</li>
+				<% } 
+				else 
+				{ %>
+					<li class = "nav-item <%- activePage == "place_order" ? "active" : "" %>">
+						<a class="nav-link" href="/place_order">Place order</a>
+					</li>
+				<% } %>
+			
+
+			<% } 
+			else 
+			{ %>
+				<li class = "nav-item <%- activePage == "login" ? "active" : "" %>">
+					<a class="nav-link" href="/login">Login</a>
+				</li>
+				<li class="nav-item <%- activePage == "sign_up" ? "active" : "" %>">
+					<a class="nav-link" href="/sign_up">Sign up</a>
+				</li>
+			<% } %>
+				
+		</ul>
+		
+		<% if (typeof currentUser !== "undefined") 
+			{ %>
+			
+				<ul class="navbar-nav ml-auto">
+				<img src = "/user_images/<%- currentUser.avatar %>" alt = "Avatar" style="width:30px; height:30px; border-radius:90%"/>
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"><%- currentUser.username %></a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="/profile/<%- currentUser.id %>">My profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item text-danger" href="/logout">Log out</a>
+						</div>
+					</li>
+				</ul>
+			
+			<% } %>
+		
+	</div>
+</nav>

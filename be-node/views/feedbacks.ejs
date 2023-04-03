@@ -1,0 +1,70 @@
+
+ <!doctype html>
+ <html lang = "en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset = "utf-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel = "stylesheet" href = "/bootstrap/css/bootstrap.min.css">
+
+		<title> My blog </title>
+	</head>
+	<body class = "bg-dark bg-image" style="background-image: url(/images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+
+			<nav>
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a href = "/profile/<%- user.id %>" class="nav-link" >Profile</a>
+					</li>
+					<li class="nav-item">
+						<a href = "/profile/<%- user.id %>/feedbacks" class="nav-link active" aria-current="page" >Feedbacks</a>
+					</li>
+					<% if ( currentUser.id == user.id) { %>
+						<li class="nav-item">
+							<a href = "/my_orders" class="nav-link" aria-current="page">My Orders</a>
+						</li>
+						<li class="nav-item">
+							<a href = "/logout" class="nav-link text-danger">Log out</a>
+						</li>
+					<% } %>
+				</ul>
+			</nav>
+			
+				<h1 > Feedbacks </h1>
+				<div>
+					<% feedbacks.forEach(function(feedbacks) { %>
+							
+							<div class="card border-primary mb-3" style="max-width: 50%;">
+								<div class="card-header">
+								  <img src = "/user_images/<%- feedbacks["avatar"] %>" alt = "Avatar" style="width:30px; height:30px; border-radius:90%"/>
+								  <a href = "/profile/<%- feedbacks["author_id"] %>"><%- feedbacks["username"] %></a>
+								</div>
+								<div class="card-body text-dark">
+									<%for (var step = 0; step < feedbacks["rating"]; step++) {%>
+										<img src = "/images/cube4.png"  alt = "rating" style="width:20px; height:20px;"/>
+									<%}%>
+									<%for (var step = 0; step < (5-feedbacks["rating"]); step++) {%>
+										<img src = "/images/cube3.png"  alt = "rating" style="width:20px; height:20px; filter: invert(50%);"/>
+									<%}%>
+									<p class="card-text text-dark"><%- feedbacks["feedback"] %></p>
+								</div>
+							</div>
+					<% }) %>
+				</div>
+				
+				<%if (user.id !== currentUser.id) {%>
+						<a href = "/profile/<%- user.id %>/feedbacks/leave_feedback" class = "btn btn-success">Leave feedback</a>
+				<%}%>
+			</div>
+		</div>
+
+		 <!-- JavaScript -->
+		 <script src = "/jquery/jquery.min.js"></script>
+		 <script src = "/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

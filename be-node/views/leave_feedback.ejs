@@ -1,0 +1,76 @@
+<!doctype html>
+ <html lang = "en">
+	 <head>
+		<!-- Required meta tags -->
+		 <meta charset = "utf-8">
+		 <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		 <!-- Bootstrap CSS -->
+		 <link rel = "stylesheet" href = "/bootstrap/css/bootstrap.min.css">
+
+		 <title> My blog </title>
+		  <link rel="stylesheet" href="/css/radio.css">
+	 </head>
+	 <body class = "bg-dark bg-image" style="background-image: url(/images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+				<h1> Feedback </h1>
+				<form method="post" action="/profile/<%- user["id"] %>/feedbacks/leave_feedback">
+					<div class="form-group">
+					
+					
+					<div class="container parent">
+						<div class="row" style = "width: 40%;" >
+							<div class='col'>
+							<input type="radio" name="rating" id="img1" class="d-none imgbgchk" value="1">
+							  <label for="img1">
+								<img src="/images/cube4.png" alt="Image 1">
+								</label>
+							</div>
+							<div class='col'>
+							<input type="radio" name="rating" id="img2" class="d-none imgbgchk" value="2">
+							  <label for="img2">
+								<img src="/images/cube4.png" alt="Image 2">
+							  </label>
+							</div>
+							<div class='col '>
+							<input type="radio" name="rating" id="img3" class="d-none imgbgchk" value="3">
+							  <label for="img3">
+								<img src="/images/cube4.png" alt="Image 3">
+							  </label>
+							</div>
+							<div class='col '>
+							<input type="radio" name="rating" id="img4" class="d-none imgbgchk" value="4">
+								<label for="img4">
+								  <img src="/images/cube4.png" alt="Image 4">
+								</label>
+							</div>
+							<div class='col'>
+							<input type="radio" name="rating" id="img5" class="d-none imgbgchk" value="5">
+								<label for="img5">
+								  <img src="/images/cube4.png" alt="Image 5">
+								</label>
+							</div>
+						 </div>
+						  
+					</div>
+						  
+						  
+					</div>
+					
+					
+					<div class="form-group">
+						<label for="feedback">comment</label>
+						<textarea name="feedback" class="form-control" id="feedback" rows="5"></textarea>
+					</div>
+					<button type="submit" class="btn btn-success">Leave feedback</button>
+				</form>
+			</div>
+		</div>
+
+		 <!-- JavaScript -->
+		 <script src = "/jquery/jquery.min.js"></script>
+		 <script src = "/bootstrap/js/bootstrap.min.js"></script>
+	 </body>
+</html>

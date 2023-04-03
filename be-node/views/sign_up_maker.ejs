@@ -1,0 +1,96 @@
+
+ <!doctype html>
+ <html lang = "en">
+	 <head>
+		<!-- Required meta tags -->
+		 <meta charset = "utf-8">
+		 <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		 <!-- Bootstrap CSS -->
+		 <link rel = "stylesheet" href = "/bootstrap/css/bootstrap.min.css">
+
+		 <title> My blog </title>
+	 </head>
+	<body class = "bg-dark bg-image" style="background-image: url(images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+				<h1> Sign up </h1>
+				<form method = "post" action = "/sign_up_maker">
+				
+					<div class="form-group row">
+						<label for = "username" class="col-md-2 col-form-label">Username</label>
+						<div class="col-md-4">
+							<input type="text" id="username" class = "form-control " name="username" autofocus required>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="email" class="col-md-2 col-form-label">E-Mail</label>
+						<div class="col-md-4">
+							<input type="text" id="email" class = "form-control " name="email" required>
+						</div>
+					</div>
+					
+					<div class="form-group row">
+						<label for="phone_num" class="col-md-2 col-form-label">Phone number</label>
+						<div class="col-md-4">
+							<input type="text" id="phone_num" class = "form-control " name="phone_num" required>
+						</div>
+					</div>
+
+					<div class = "form-group row">
+						<label for="password" class="col-md-2 col-form-label ">Password</label>
+						<div class="col-md-4">
+							<input type="password" id="password" class="form-control " name="password" required>
+						</div>
+					</div>
+
+					<div class = "form-group row">
+						<label for="reppassword" class="col-md-2 col-form-label ">Repeat Password</label>
+						<div class="col-md-4">
+							<input type="password" id="repassword" class="form-control " name="reppassword" required>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="country" class="col-md-2 col-form-label ">Country</label>
+						<div class="col-md-4">
+							<input type="text" id="country" class="form-control " name="country" required>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="city" class="col-md-2 col-form-label ">City</label>
+						<div class="col-md-4">
+							<input type="text" id="city" class="form-control " name="city" required>
+						</div>
+					</div>
+					
+					<div class = "form-group row">
+						<label for="card_num" class="col-md-2 col-form-label ">My credit card number</label>
+						<div class="col-md-4">
+							<input type="text" id="card_num" class="form-control " name="card_num" required>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-md-10 offset-md-0">
+							<div class="form-check">
+								<input class="form-check-input mt-0"  type="checkbox"  id="gridCheck1" required>
+								<label class="form-check-label" for="gridCheck1"> I have read and accept the terms and conditions of</label>
+								<a href="Agreement.pdf" class="btn btn-link">user's agreement </a>
+							</div>
+						</div>
+					</div>
+									
+					<button type = "submit" class = "btn btn-primary" > Sign up </button>
+				</form>
+			</div>
+		</div>
+
+		 <!-- JavaScript -->
+		 <script src = "/jquery/jquery.min.js"></script>
+		 <script src = "/bootstrap/js/bootstrap.min.js"></script>
+	 </body>
+</html>

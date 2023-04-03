@@ -1,0 +1,56 @@
+
+ <!doctype html>
+ <html lang = "en">
+	 <head>
+		<!-- Required meta tags -->
+		 <meta charset = "utf-8">
+		 <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		 <!-- Bootstrap CSS -->
+		 <link rel = "stylesheet" href = "/bootstrap/css/bootstrap.min.css">
+
+		 <title> My blog </title>
+	 </head>
+	 <body class = "bg-dark card card-image" style="background-image: url(images/BG7.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
+		<div class="container">
+			<% include('partials/navbar.ejs') %>
+			<div class="jumbotron">
+				<h1> Sign up </h1>
+				<div class="card-group">
+					<div class="card" style="width: 18rem;">
+						<img src="images/Maker1.png" class="card-img-top" alt="Makers">
+						<div class="card-body">
+							<h5 class="card-title">Become Maker</h5>
+							<p class="card-text">Join evergrowing community of 3d printing enthusiasts! 
+							Start your own additive manufacturing buisiness! 
+							Take orders from our customers and raise your rating.
+							Our service will help you to connect with potential clients and fellow collegues from all around the world.
+							Use our service to manage your orders in the most efficient way possible.
+							Contribute to worldwide maker community!</p>
+						</div>
+						<div class="card-footer">
+							<a href="/sign_up_maker" class="btn btn-primary">Join as a maker</a>
+						</div>
+					</div>
+					<div class="card" style="width: 18rem;">
+						<img src="images/Customers3.jpg" class="card-img-top" alt="Customers">
+						<div class="card-body">
+							<h5 class="card-title">Become Customer</h5>
+							<p class="card-text">Make your wieldest ideas come true with the power of 3d printing!
+							You can now get access to the newest additive manufacturing technologies even if you don't own a 3d printer.
+							Join our community as a customer, place orders, connect with makers and get your dream printed!
+							It is as easy as order uber.</p>
+						</div>
+						<div class="card-footer">
+							<a href="/sign_up_customer" class="btn btn-primary">Join as a customer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		 <!-- JavaScript -->
+		 <script src = "/jquery/jquery.min.js"></script>
+		 <script src = "/bootstrap/js/bootstrap.min.js"></script>
+	 </body>
+</html>

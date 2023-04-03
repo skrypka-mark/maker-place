@@ -1,0 +1,16 @@
+
+        .col img{
+            height:50px;
+            width: 50px;
+            cursor: pointer;
+            transition: transform 1s;
+            object-fit: cover;
+			filter: invert(50%)
+        }
+
+
+        .imgbgchk:checked + label>img{
+            transform: scale(1.25);
+            filter: invert(0%)
+        }
+
