@@ -1,5 +1,10 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <NavBar />
+    <NuxtLayout name='main'>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
+
+<style src='~/assets/scss/main.css' />

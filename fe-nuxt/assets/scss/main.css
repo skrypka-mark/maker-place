@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), linear-gradient(180deg, rgba(37, 19, 60, 0.8) 0%, rgba(24, 48, 95, 0.8) 50.52%, rgba(14, 5, 39, 0.8) 100%);
+    background-color: rgba(0, 0, 0, .4);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
